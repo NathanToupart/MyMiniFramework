@@ -15,6 +15,7 @@ $router = new Router($url);
 $router->get('/', 'Exemple#index');
 $router->get('/show', 'Exemple#show');
 $router->get('/show/:id', 'Exemple#get');
+$router->get('/create', 'Exemple#create');
 $router->post('/update/:id', 'Exemple#update');
 
 

@@ -104,7 +104,7 @@ class Model extends Db
         return $this->query("SELECT * FROM $model->table a WHERE a.$champ = ? ", [$id])->fetchAll();
     }
 
-    public function ManyToMany(int $id, Model $model, String $pivotable = null, String $thisId = null, $modelId = null){
+    public function ManyToMany(int $id, Model $model, String $pivotable = null, String $thisId = null, String $modelId = null){
         if($thisId == null){
             $thisId = substr($this->table, 0, -1)."_id";
         }
@@ -116,7 +116,7 @@ class Model extends Db
             $pivotable = substr($this->table, 0, -1)."_".substr($model->table, 0, -1);
         }
         
-        return $this->query("SELECT * FROM $model->table a INNER JOIN $pivotable pv on pv.$modelId = $thisId WHERE pv.$thisId = ? ", [$id])->fetchAll();
+        return $this->query("SELECT * FROM $model->table a INNER JOIN $pivotable pv on pv.$modelId = a.id WHERE pv.$thisId = ? ", [$id])->fetchAll();
     }
 
 

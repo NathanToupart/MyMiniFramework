@@ -24,6 +24,20 @@ class ExempleController extends Controller
         var_dump($user);
     }
 
+    public function create(){
+        var_dump('ok');
+        $test = new TestModel([
+            'nom' => 'Insert1',
+            'prenom' => 'prenom',
+            'age' => 20
+        ]);
+        $res = $test->save();
+        var_dump($res);
+        $tests = new TestModel();
+        $res = $tests->setNom('Insert2')->setPrenom('test')->save();
+        var_dump($res);
+    }
+
     public function update($id){
         $tests = new TestModel();
         $res = $tests->update([
