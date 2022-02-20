@@ -77,4 +77,5 @@ class TestModel extends Model
 
         return $this;
     }
+
 }

@@ -21,6 +21,18 @@ class Controller
         $this->twig->display(str_replace('.', '/', $view) . '.html.twig', $variables);
     }
 
+    public function redirect($url, array $param = null){
+        if($param != null){
+            $array = [];
+            foreach($param as $key => $v){
+                $array[] = "$key=$v";
+            }
+            $url = $url. "?".implode('&', $array);
+        }
+        
+        header('Location: '.$url);
+    }
+
     public function error404()
     {
         $this->twig->display('404.html.twig');

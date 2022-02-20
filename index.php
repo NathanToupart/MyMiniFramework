@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\TestModel;
 
 require 'vendor/autoload.php';
 
@@ -13,16 +12,15 @@ if (isset($_GET['url'])) {
 
 $router = new Router($url);
 
+$router->get('/', 'Exemple#index');
+$router->get('/show', 'Exemple#show');
+$router->get('/show/:id', 'Exemple#get');
+$router->post('/update/:id', 'Exemple#update');
 
-$router->get('/', 'Portfolio#index');
-$router->get('/formation', 'Portfolio#formation');
-$router->get('/experiences', 'Portfolio#experiences');
-$router->get('/competences', 'Portfolio#competences');
-$router->get('/perspectives', 'Portfolio#perspectives');
-$router->get('/centre_interet', 'Portfolio#centre_interet');
-$router->get('/contact', 'Portfolio#contact');
 
-$router->get('/test', 'Test#test');
+$router->get('/redirect', 'Exemple#testRedi');
+
+$router->get('/toto', 'Exemple#toto');
 
 
 $router->run();

@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in users %}
+                    <tr>
+                        <th scope="row">{{ u['id']}}</th>
+                        <td>{{ u['nom']}}</td>
+                        <td>{{ u['prenom']}}</td>
+                        <td>{{ u['age']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
